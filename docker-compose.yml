@@ -34,3 +34,18 @@ services:
             - "9000:9000"
         depends_on: 
             - db
+    
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin
+        environment: 
+            - PMA_ARBITRARY=1
+        restart: always
+        ports: 
+            - "3000:80"
+        volumes:
+            - /sessions
+            - ~/docker/phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
+            - /custom/phpmyadmin/theme/:/www/themes/theme/
+        links: 
+            - db:db
