@@ -14,6 +14,6 @@ docker exec -it php php artisan db:seed
 
 # adding the project domain to default php-fpm user
 docker exec -it php chown -R www-data:www-data /var/www/html
-docker exec -it php chmod -R 755 /var/www/html/storage
+docker exec -it php chmod -R 777 /var/www/html
 
 echo "\nBuild OK\n"
