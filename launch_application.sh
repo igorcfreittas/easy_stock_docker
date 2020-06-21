@@ -9,6 +9,7 @@ docker-compose up --build -d
 cp applications/easy_stock/.env.example applications/easy_stock/.env
 docker exec -it php composer install
 docker exec -it php php artisan key:generate
+docker exec -it php php artisan migrate --path=/database/migrations/2020_06_14_130817_create_accounts_table.php
 docker exec -it php php artisan migrate
 docker exec -it php php artisan db:seed
 
